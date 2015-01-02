@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bookmark::Application.load_tasks
+Corkboard::Application.load_tasks

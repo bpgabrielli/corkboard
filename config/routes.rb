@@ -1,4 +1,4 @@
-Bookmark::Application.routes.draw do
+Corkboard::Application.routes.draw do
 
   root "application#hello"
 

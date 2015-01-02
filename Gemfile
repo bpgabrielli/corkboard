@@ -49,3 +49,5 @@ end
 group :development do
  gem 'sqlite3'
 end
+
+gem 'rename'

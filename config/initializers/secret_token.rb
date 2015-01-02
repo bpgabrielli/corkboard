@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Bookmark::Application.config.secret_key_base = 'ff44da85027c7bc59a54f5f1eaaf5e5ab05dcb5c3962827c6df6a58141ca85a68228a489b6216e3571d356bd52dcbb61a5356d1d5e636e7d391cdf727ff45eea'
+Corkboard::Application.config.secret_key_base = 'ff44da85027c7bc59a54f5f1eaaf5e5ab05dcb5c3962827c6df6a58141ca85a68228a489b6216e3571d356bd52dcbb61a5356d1d5e636e7d391cdf727ff45eea'
