@@ -51,3 +51,5 @@ group :development do
 end
 
 gem 'rename'
+
+gem 'devise'
