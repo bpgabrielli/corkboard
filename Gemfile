@@ -53,3 +53,7 @@ end
 gem 'rename'
 
 gem 'devise'
+
+gem 'figaro'
+
+gem 'omniauth-facebook'
