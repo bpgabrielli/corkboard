@@ -57,3 +57,5 @@ gem 'devise'
 gem 'figaro'
 
 gem 'omniauth-facebook'
+
+gem 'bootstrap-sass'

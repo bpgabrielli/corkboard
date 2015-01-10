@@ -1,7 +1,13 @@
 Corkboard::Application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  root "application#hello"
+  get "welcome/index"
+  get "welcome/about"
+  get "topics/index"
+  get "topics/show"
+  devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, only: [:update, :show, :index]
+  get 'about' => 'welcome#about'
+  root "welcome#index"
 
   # devise_scope :user do
   #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
