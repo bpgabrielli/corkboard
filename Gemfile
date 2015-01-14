@@ -59,3 +59,5 @@ gem 'figaro'
 gem 'omniauth-facebook'
 
 gem 'bootstrap-sass'
+
+gem 'embedly'

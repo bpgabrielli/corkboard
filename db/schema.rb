@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104171315) do
+ActiveRecord::Schema.define(version: 20150114005614) do
 
   create_table "bookmarks", force: true do |t|
     t.string   "title"
@@ -20,10 +20,22 @@ ActiveRecord::Schema.define(version: 20150104171315) do
     t.datetime "updated_at"
     t.integer  "topic_id"
     t.integer  "user_id"
+    t.integer  "like_id"
   end
 
+  add_index "bookmarks", ["like_id"], name: "index_bookmarks_on_like_id"
   add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id"
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "bookmark_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["bookmark_id"], name: "index_likes_on_bookmark_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "topics", force: true do |t|
     t.string   "name"
@@ -47,9 +59,13 @@ ActiveRecord::Schema.define(version: 20150104171315) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "bookmark_id"
+    t.integer  "like_id"
   end
 
+  add_index "users", ["bookmark_id"], name: "index_users_on_bookmark_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["like_id"], name: "index_users_on_like_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

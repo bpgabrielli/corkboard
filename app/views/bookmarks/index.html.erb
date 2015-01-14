@@ -1,0 +1,7 @@
+<%= form_for @bookmark_new do |f| %>
+  <div class="form-group">
+    <%= f.text_field :url, rows: 1, cols: 10, class: 'form-control', placeholder: "Paste link" %>
+  </div>
+<% end %>
+
+<%= render partial: 'bookmarks/bookmark' %>

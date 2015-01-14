@@ -2,10 +2,9 @@ Corkboard::Application.routes.draw do
 
   get "welcome/index"
   get "welcome/about"
-  get "topics/index"
-  get "topics/show"
   devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:update, :show, :index]
+  resources :bookmarks
   get 'about' => 'welcome#about'
   root "welcome#index"
 
