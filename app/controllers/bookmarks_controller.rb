@@ -10,6 +10,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark_new = current_user.bookmarks.build(params.require(:bookmark).permit(:url, :title))
+    @bookmark_new.retrieve_preview
     if @bookmark_new.save
       redirect_to bookmarks_path   
     else

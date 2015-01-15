@@ -1,15 +1,9 @@
-<div id="wrapper">
-  <div id="columns">
-    <% @bookmarks.each do |bookmark| %>
-      <div class="pin">
-        <%= link_to bookmark.url do %>
-        <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
-        <% end %>
-        <p>
-          <%= bookmark.title %><br>
-          <%= link_to "remove", bookmark, method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
-        </p>
-      </div>
-    <% end %>
-  </div>
+<div class="pin">
+  <%= link_to bookmark.url do %>
+  <img src="http://cdn.animals-pics.com/pictures/jhangtv.com/wp-content/uploads/2014/03/birds-of-paradise-amazon.jpg" />
+  <% end %>
+  <p>
+    <%= bookmark.title %><br>
+    <%= link_to "remove", bookmark, method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
+  </p>
 </div>

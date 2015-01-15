@@ -1,0 +1,17 @@
+<div id="wrapper">
+  <div id="columns">
+    <%#= render bookmarks %>
+
+    <%# bookmarks.each do |bookmark| %>
+      <%#= render bookmark %>
+    <%# end %>
+
+    <%# bookmarks.each do |bookmark| %>
+      <%#= render partial: 'bookmarks/bookmark', object: bookmark %>
+    <%# end %>
+
+    <% bookmarks.each do |bookmark| %>
+      <%= render partial: 'bookmarks/bookmark', locals: {bookmark: bookmark} %>
+    <% end %>
+  </div>
+</div>

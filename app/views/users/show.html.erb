@@ -1,0 +1,16 @@
+<div class="row">
+ <div class="col-md-8">
+   <div class="media">
+     <div class="media-body">
+       <h2 class="media-heading"><%= @user.name %></h2>
+
+     </div>
+   </div>
+ </div>
+</div>
+<%= pluralize(@user.bookmarks.count, 'Posted bookmark') %>
+<%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: @bookmarks } %>
+
+<br>
+<%= pluralize(@user.liked_bookmarks.count, 'Liked bookmark') %>
+<%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: @liked_bookmarks } %>
