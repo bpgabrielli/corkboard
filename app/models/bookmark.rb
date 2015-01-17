@@ -7,5 +7,7 @@ class Bookmark < ActiveRecord::Base
   def retrieve_preview
     preview = Preview.new(self.url)
     self.title = preview.title
+    self.thumbnail = preview.thumbnail
+    self.description = preview.description
   end
 end

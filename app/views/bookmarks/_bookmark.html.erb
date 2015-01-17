@@ -1,6 +1,6 @@
 <div class="pin">
-  <%= link_to bookmark.url do %>
-  <img src="http://cdn.animals-pics.com/pictures/jhangtv.com/wp-content/uploads/2014/03/birds-of-paradise-amazon.jpg" />
+  <%= link_to bookmark.url, title: bookmark.description do %>
+  <img src="<%= (bookmark.thumbnail || 'http://cdn.animals-pics.com/pictures/jhangtv.com/wp-content/uploads/2014/03/birds-of-paradise-amazon.jpg') %>" />
   <% end %>
   <p>
     <%= bookmark.title %><br>

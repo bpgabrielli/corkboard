@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
+
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 end

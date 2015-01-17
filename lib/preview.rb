@@ -7,4 +7,12 @@ class Preview
   def title
     @result.title
   end
+
+  def thumbnail
+    @result.thumbnail_url
+  end
+
+  def description
+    @result.description
+  end
 end
