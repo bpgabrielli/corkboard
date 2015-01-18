@@ -1,6 +1,43 @@
  @import "bootstrap";
 
-  .user-info {
+.bkmrk-btn{
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.heart{
+  transition: color .4s ease;
+  color: #b20000;
+ }
+
+.unheart{
+  transition: color .4s ease;
+  color: #428bca;
+ }
+
+.trash {
+  transition: color .4s ease;
+  color: #939393;
+ }
+
+.heart:hover{
+  color: #428bca;
+ }
+
+.unheart:hover{
+  color: #b20000;
+ }
+
+.trash:hover{
+  color: #282828;
+ }
+
+body {
+  background-color: #282828;
+ }
+
+.user-info {
    margin-top: 9px;
  }
  
@@ -9,7 +46,13 @@
  }
 
  .jumbotron {
-  background-color: #D291E0;
+  background-color: #FEFEFE;
+  padding-top: 15px;
+  padding-bottom: 15px;
+ }
+
+ .jumbotron h1 {
+  margin-top: 10px;
  }
 
 #wrapper {
@@ -32,9 +75,9 @@
 }
 
 .pin {
-  display: inline-block;
+  // display: inline-block;
   background: #FEFEFE;
-  border: 2px solid #FAFAFA;
+  // border: 2px solid #FAFAFA;
   // box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   margin: 0px 0px 15px;
   -webkit-column-break-inside: avoid;
@@ -52,10 +95,33 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow, transform;
-  transition-property: box-shadow, transform;
+  position: relative;
+  overflow: hidden;
+}
+
+.pin:hover:before, .pin:focus:before, .pin:active:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  border-width: 4px;
+}
+
+.pin:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-color: #428bca;
+  border-style: solid;
+  border-width: 0;
+  -webkit-transition-property: border-width;
+  transition-property: border-width;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
 
 .pin img {
@@ -66,10 +132,14 @@
 }
 
 .pin p {
-  font: 12px/18px Arial, sans-serif;
+  // font: 12px/18px Arial, sans-serif;
   color: #333;
   margin: 0;
   text-align: center;
+}
+
+.pin p.bookmark-title {
+  margin-bottom: 8px;
 }
 
 /* Smaller devices (tablets, 7480px and up) */
@@ -107,12 +177,6 @@
 //     column-count: 5;
 //   }
 // }
-
-.pin:hover, .pin:focus, .pin:active {
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 
 // .tooltip{
 //     display: inline;

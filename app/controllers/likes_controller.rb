@@ -2,7 +2,12 @@ class LikesController < ApplicationController
 
   def create
     @like_bookmark = Bookmark.find(params[:bookmark_id])
-    Like.create(user: current_user, bookmark: @like_bookmark)
+    if Like.create(user: current_user, bookmark: @like_bookmark)
+      redirect_to(:back)
+    else
+      flash[:error] = "Unable to unlike. Try once more?"
+      redirect_to(:back)
+    end
   end
 
   def destroy
@@ -11,11 +16,11 @@ class LikesController < ApplicationController
     # authorize favorite
 
     if like.destroy
-    flash[:notice] = "Bookmark unliked."
-    # redirect_to [@post.topic, @post]
+      redirect_to(:back)
     else
-    flash[:error] = "Unable to unlike. Try once more?"
-    # redirect_to [@post.topic, @post]
+      flash[:error] = "Unable to unlike. Try once more?"
+      redirect_to(:back)
+    end
   end
   
 end

@@ -4,7 +4,9 @@ Corkboard::Application.routes.draw do
   get "welcome/about"
   devise_for :users#, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: [:update, :show, :index]
-  resources :bookmarks
+  resources :bookmarks do
+    resources :likes
+  end
   get 'about' => 'welcome#about'
   root "welcome#index"
 
