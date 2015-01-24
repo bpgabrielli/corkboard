@@ -3,11 +3,23 @@
   <h1>Corkboard</h1>
   <p>Social Bookmarking with Email Integration</p>
   <p>
-     <% if not current_user %>
+     <% if current_user %>
+      <%= form_for [@bookmark], do |f| %>
+        <div class="form-group">
+          <%= f.text_field :url, rows: 1, cols: 10, class: 'form-control', placeholder: "Paste link" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :topic_name, rows: 1, cols: 10, class: 'form-control', placeholder: "#topic" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Submit", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+     <% else %>
       <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or 
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
      <% end %>
   </p>
 </div>
 
-<%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: @bookmarks } %>
+<%= render partial: 'topics/topics', locals: { topics: @topics } %>

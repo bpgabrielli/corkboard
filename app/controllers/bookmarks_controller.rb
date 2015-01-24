@@ -6,16 +6,19 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @bookmark = Bookmark.new
   end
 
   def create
     @bookmark_new = current_user.bookmarks.build(params.require(:bookmark).permit(:url, :title))
+    @topic_bookmark_new = Topic.find_or_initialize_by(name: params[:topic_name])
+    @bookmark_new.topic = @topic_bookmark_new
     @bookmark_new.retrieve_preview
     if @bookmark_new.save
-      redirect_to bookmarks_path   
+      redirect_to :back
     else
       flash[:error] = "Error creating bookmark. Please try again."
-      render :index
+      render :back
     end
   end
 
@@ -27,8 +30,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-    if @bookmark.destroy
-      redirect_to bookmarks_path
+    if BookmarkPolicy.new(current_user, @bookmark).destroy?
+      @bookmark.destroy
+      redirect_to :back
     end
   end
 

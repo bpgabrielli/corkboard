@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @bookmarks = @user.bookmarks
     @liked_bookmarks = @user.liked_bookmarks
+    # @posted_topics = @user.bookmarks.includes(:topic).group_by{|bookmark| bookmark.topic}.paginate(page: params[:page], per_page: 2)
+    # @liked_topics = @user.liked_bookmarks.includes(:topic).group_by{|bookmark| bookmark.topic}.paginate(page: params[:page], per_page: 2)
   end
 
   def index

@@ -1,0 +1,7 @@
+<h1><%= topic.name %></h1>
+
+<div class="row">
+  <div>
+    <%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: topic.bookmarks } %>
+  </div>
+</div>

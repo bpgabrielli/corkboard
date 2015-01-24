@@ -1,5 +1,18 @@
  @import "bootstrap";
 
+.nav-tabs {
+border-bottom: 1px solid #777;
+}
+
+.footer{
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #777;
+}
+ .right-header{
+  float: right !important;
+ }
+
 .bkmrk-btn{
   font-size: 20px;
   margin-right: 5px;
@@ -35,6 +48,7 @@
 
 body {
   background-color: #282828;
+  color: white;
  }
 
 .user-info {
@@ -47,6 +61,7 @@ body {
 
  .jumbotron {
   background-color: #FEFEFE;
+  color: #333333;
   padding-top: 15px;
   padding-bottom: 15px;
  }
@@ -136,10 +151,15 @@ body {
   color: #333;
   margin: 0;
   text-align: center;
+  padding-bottom: 5px;
+}
+
+.pin p > a {
+  text-decoration: none;
 }
 
 .pin p.bookmark-title {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 /* Smaller devices (tablets, 7480px and up) */

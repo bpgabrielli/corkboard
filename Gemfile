@@ -61,3 +61,5 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 
 gem 'embedly'
+
+gem 'will_paginate'

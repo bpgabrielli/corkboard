@@ -17,7 +17,7 @@
         <% end %>
       <% end %>
      <% end %>
-     <% if bookmark.user == current_user %>
+     <% if BookmarkPolicy.new(current_user, bookmark).destroy? %>
        <%= link_to bookmark, method: :delete do %>
         <i class="glyphicon glyphicon-trash trash bkmrk-btn"></i>
         <% end %>
