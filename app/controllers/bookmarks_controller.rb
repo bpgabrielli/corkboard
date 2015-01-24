@@ -10,9 +10,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark_new = current_user.bookmarks.build(params.require(:bookmark).permit(:url, :title))
-    @topic_bookmark_new = Topic.find_or_initialize_by(name: params[:topic_name])
-    @bookmark_new.topic = @topic_bookmark_new
+    @bookmark_new = current_user.bookmarks.build(params.require(:bookmark).permit(:url, :topic_name))
+    @topic = Topic.find_or_initialize_by(name: @bookmark_new.topic_name)
+    @bookmark_new.topic = @topic
     @bookmark_new.retrieve_preview
     if @bookmark_new.save
       redirect_to :back
@@ -39,7 +39,7 @@ class BookmarksController < ApplicationController
 private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :title)
+    params.require(:bookmark).permit(:url, :topic_name)
   end
 
 end

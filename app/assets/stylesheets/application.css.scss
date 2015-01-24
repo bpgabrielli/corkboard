@@ -1,7 +1,12 @@
  @import "bootstrap";
 
+ .header-form {
+  padding-top: 10px;
+  max-width: 400px;
+ }
+
 .nav-tabs {
-border-bottom: 1px solid #777;
+  border-bottom: 1px solid #777;
 }
 
 .footer{
@@ -60,14 +65,19 @@ body {
  }
 
  .jumbotron {
-  background-color: #FEFEFE;
-  color: #333333;
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/7/78/Cork_closeup.jpg");
+  background-size: contain; 
+  color: #FFFFFF;
   padding-top: 15px;
   padding-bottom: 15px;
  }
 
  .jumbotron h1 {
   margin-top: 10px;
+ }
+
+.jumbotron h2 {
+  display: inline-block;
  }
 
 #wrapper {

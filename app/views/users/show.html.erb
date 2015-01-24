@@ -1,16 +1,12 @@
-<div class="row">
- <div class="col-md-8">
-   <div class="media">
-     <div class="media-body">
-       <h2 class="media-heading"><%= @user.name %></h2>
-     </div>
-   </div>
- </div>
+<br>
+<div class="jumbotron">
+  <h2><%=@user.name%>'s board</h2>
+  <div class="header-form">
+    <%= render partial: 'bookmarks/form', locals: { bookmark: @bookmark } %>
+  </div>
 </div>
 <%= pluralize(@user.bookmarks.count, 'Posted bookmark') %>
 <%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: @bookmarks } %>
-
-
 <br>
 <%= pluralize(@user.liked_bookmarks.count, 'Liked bookmark') %>
 <%= render partial: 'bookmarks/bookmarks', locals: { bookmarks: @liked_bookmarks } %>

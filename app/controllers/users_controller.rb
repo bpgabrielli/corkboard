@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @bookmark = Bookmark.new
     @bookmarks = @user.bookmarks
     @liked_bookmarks = @user.liked_bookmarks
     # @posted_topics = @user.bookmarks.includes(:topic).group_by{|bookmark| bookmark.topic}.paginate(page: params[:page], per_page: 2)
