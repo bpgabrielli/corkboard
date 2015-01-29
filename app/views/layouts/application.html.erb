@@ -12,8 +12,8 @@
       <li><%= link_to "Corkboard", root_path %></li>
 
            <% if current_user %>
-              <li><%= link_to "My Board", current_user %></li>
-              <li class="right-header"><%= link_to (current_user.name || current_user.email), edit_user_registration_path %></li>
+              <li><%= link_to current_user do %><%= current_user.name %>'s Board<% end %></li>
+              <li class="right-header"><%= link_to current_user.email, edit_user_registration_path %></li>
            <% else %>
             <div class="pull-right user-info">
              <%= link_to "Sign In", new_user_session_path %> or 

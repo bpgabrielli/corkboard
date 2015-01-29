@@ -1,6 +1,10 @@
 <div class="pin">
   <%= link_to bookmark.url, title: bookmark.description do %>
-  <img src="<%= (bookmark.thumbnail || 'http://cdn.animals-pics.com/pictures/jhangtv.com/wp-content/uploads/2014/03/birds-of-paradise-amazon.jpg') %>" />
+    <% if bookmark.thumbnail %>
+      <img src="<%= bookmark.thumbnail %>" />
+    <% else %>
+      <span class="glyphicon glyphicon-link bkmrk-btn"></span>
+    <% end %>
   <% end %>
   <p class="bookmark-title">
     <%= bookmark.title %>
@@ -9,11 +13,11 @@
      <% if current_user %>
       <% if like = current_user.liked(bookmark) %>
        <%= link_to [bookmark, like], method: :delete do %>
-         <i class="glyphicon glyphicon-heart-empty unheart bkmrk-btn"></i>
+         <i class="glyphicon glyphicon-heart heart bkmrk-btn"></i>
        <% end %>
       <% else %>
         <%= link_to [bookmark, Like.new], method: :post do %>
-        <i class="glyphicon glyphicon-heart heart bkmrk-btn"></i>
+         <i class="glyphicon glyphicon-heart-empty unheart bkmrk-btn"></i>
         <% end %>
       <% end %>
      <% end %>
