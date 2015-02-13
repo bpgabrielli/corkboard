@@ -15,4 +15,14 @@ class Bookmark < ActiveRecord::Base
   def default_value
     self.topic ||= Topic.first
   end
+
+  def sanitize_url
+    self.url.chomp
+  end
+
+  def save_sanitized_with_preview
+    self.sanitize_url
+    self.retrieve_preview
+    self.save
+  end
 end

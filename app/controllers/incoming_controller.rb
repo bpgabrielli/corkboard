@@ -6,7 +6,7 @@ class IncomingController < ApplicationController
   def create
      # Take a look at these in your server logs
      # to get a sense of what you're dealing with.
-     puts "INCOMING PARAMS HERE: #{params}"
+     # puts "INCOMING PARAMS HERE: #{params}"
 
     # You put the message-splitting and business
     # magic here.
@@ -24,11 +24,14 @@ class IncomingController < ApplicationController
     @user = User.find_or_create_by(email: params[:sender])
     @topic = Topic.find_or_initialize_by(name: params[:subject])
     @url = params["body-plain"]
-    @bookmark_new = @user.bookmarks.build(url: @url)
+
+    @bookmark_new = Bookmark.new
+
+    @bookmark_new.user = @user
+    @bookmark_new.url = @url
     @bookmark_new.topic = @topic
     @bookmark_new.topic_name = @topic.name
-    @bookmark_new.retrieve_preview
-    @bookmark_new.save
+    @bookmark_new.save_sanitized_with_preview
 
     head 200
   end

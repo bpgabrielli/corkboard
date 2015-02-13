@@ -63,3 +63,7 @@ gem 'bootstrap-sass'
 gem 'embedly'
 
 gem 'will_paginate'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
